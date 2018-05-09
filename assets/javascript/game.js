@@ -11,6 +11,10 @@ console.log(randomWord);
 //While working on the functions, this is just here temporarily
 document.getElementById("word").innerHTML = document.getElementById("word").innerHTML + randomWord;
 
+/* We will need to create an inline <ul> with the letters of randomWord in the <li>s.
+I'm guessing that's a for() loop (or 2 with one nested) 
+
+
 // Set an EventListener to start the game with any key press
 // I'm adding this to the window because it's not dependent on a specific element
 // window.addEventListener("keypress", function () {

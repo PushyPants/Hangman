@@ -1,0 +1,33 @@
+#tempMessage {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5rem;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+    padding: 15px;
+}
+
+#tempMessage p{
+    margin: 0;
+}
+
+#tempMessage.hidden {
+    visibility: hidden;
+}
+
+#tempMessage.show {
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 1.5s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  20%,80% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  25%,75% { opacity: 1; }
+}

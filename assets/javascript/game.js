@@ -12,7 +12,7 @@ console.log(randomWord);
 document.getElementById("word").innerHTML = document.getElementById("word").innerHTML + randomWord;
 
 /* We will need to create an inline <ul> with the letters of randomWord in the <li>s.
-I'm guessing that's a for() loop (or 2 with one nested) 
+I'm guessing that's a for() loop (or 2 with one nested) */
 
 
 // Set an EventListener to start the game with any key press

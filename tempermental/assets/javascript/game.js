@@ -25,7 +25,7 @@ I'm guessing that's a for() loop (or 2 with one nested) */
 
 // tester code to listen for keypress and output pressed key
 window.addEventListener("keypress", function(event) {
-    
+    console.log(event);
 //pass value of key pressed to var key
 var keyPressed = event.key;
 

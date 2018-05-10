@@ -11,21 +11,36 @@
     
 </head>
 <body>
-    <p>Down and dirty code to test with</p>
-    <div id="wordHolder">
-        <h1 id="word">Word to be used in the game: </h1>
-        <h2 id="letters">Letters Used: </h1>
-    </div>
+    <div class="hangManContainer container">
+        <div class="titleRow row">
+            <h1>HANG<i>OVER</i>MAN</h1>
+        </div>
+        <div class="hangManContent row">
+            <div class="container">
+            <div class="topRow row">
+                <div class="scoreCol col-xs-12 col-md-4">Score Column
+                    <div id="chances" class="chances">Remaining Chances: 6</div>
+                </div>
+                <div class="animationCol col-xs-12 col-md-8">Animation Column</div>
+            </div>
+            <div class="bottomRow row">
+                <div class="usedLetterCol col-xs-12 col-md-4">
+                    <h2>Used Letters:</h1>
+                    <div id="usedLetters" class="usedLetters"></div>
+                </div>
+                <div class="wordColumn col-xs-12 col-md-8 align-middle">
+                    <span class="align-middle">
+                        
+                    </span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>  
     
-
-
-
-
-    <div id="tempMessage" class="hidden"><p>asdf</p>
+    
+    <div id="tempMessage" class="hidden"><p></p>
     </div>
-
-
-
 </body>
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </html>

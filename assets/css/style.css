@@ -1,3 +1,44 @@
+
+.hangManContainer{
+    min-height: 100%;
+    margin: 10% auto;
+}
+
+.hangManContent {
+    border: 2px solid black;
+    margin-top: -10px;
+    min-height:250px;
+}
+
+.topRow {
+    border-bottom: 2px solid black;
+    min-height:100px;
+}
+
+.bottomRow{
+    height: 150px;
+}
+
+.scoreCol{
+    border-right: 2px solid black;
+}
+
+.usedLetterCol{
+    border-right:2px solid black;
+}
+
+.usedLetters{
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+
+
+
+
+
+
 #tempMessage {
     color: white;
     background-color: black;
@@ -18,6 +59,10 @@
 }
 
 #tempMessage.show {
+    position: fixed;
+    top: 49%;
+    left: 37%
+    z-index: 1;
     -webkit-animation: fadeinout 4s linear forwards;
     animation: fadeinout 1.5s linear forwards;
 }

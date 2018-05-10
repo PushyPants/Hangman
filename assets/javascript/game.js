@@ -1,11 +1,23 @@
 //Create word bank array
 var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma"];
 
+//set chanches to 6
 var chances = 6;
+
 
 //grab random word from array
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase();
     console.log(randomWord);
+
+
+    for (i = 0; i < randomWord.length; i++) {
+        var letterIndex = randomWord.indexOf(randomWord[i]);
+        var wordLi = document.getElementById("wordUl").innerHTML;
+        console.log(randomWord[i],letterIndex);
+        //document.getElementById("wordUl").innerHTML = '<li class="letter'+letterIndex+'">'+randomWord[i]+'</li>';
+        document.getElementById("wordUl").innerHTML = wordLi + '<li class="letter'+letterIndex+'">'+randomWord[i]+'</li>';
+    }
+
 
 // array/string to check agains alpha only characters
 var alphaOnly = "abcdefghijklmnopqrstuvwxyz";

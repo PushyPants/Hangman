@@ -33,6 +33,12 @@
     letter-spacing: 5px;
 }
 
+#wordUl [class *= "letter"] {
+    list-style: none;
+    display: inline;
+    margin: 0 5px;
+}
+
 
 
 

@@ -77,8 +77,9 @@ document.onkeyup = function(event){
 
                             // console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
                             document.getElementsByClassName("ltrBoxContents"+letterIndex+" hidden")[0].className = "ltrBoxContents";
-
+                            
                         }
+
                 }
                 
                 if (correctLetters == randomWord.length) {

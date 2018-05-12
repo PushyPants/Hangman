@@ -33,11 +33,39 @@
     letter-spacing: 5px;
 }
 
-#wordUl [class *= "letter"] {
+#wordUl {
+    display: inline-flex;
     list-style: none;
-    display: inline;
+}
+
+/* list item that inclueds the string "ltrLi" since index number is added to the end */
+li[class *= "ltrLi"] {
+    /* display: inline; */
+    margin: 0 5px;
+    /* border-bottom:1px solid black; */
+}
+
+[class *= "ltrBox"] {
+    border-bottom: 1px solid black;
+    width: 20px;
+    text-align: center;
+}
+
+.ltrBoxContents {
+    border: 0px;
+}
+
+#wordUl .space {
+    border-bottom: none;
     margin: 0 5px;
 }
+
+.hidden{
+    border-bottom: none;
+    visibility: hidden; 
+}
+
+
 
 
 

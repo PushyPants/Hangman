@@ -12,10 +12,15 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCa
 
     for (i = 0; i < randomWord.length; i++) {
         var letterIndex = randomWord.indexOf(randomWord[i]);
-        var wordLi = document.getElementById("wordUl").innerHTML;
-        console.log(randomWord[i],letterIndex);
-        //document.getElementById("wordUl").innerHTML = '<li class="letter'+letterIndex+'">'+randomWord[i]+'</li>';
-        document.getElementById("wordUl").innerHTML = wordLi + '<li class="letter'+letterIndex+'">'+randomWord[i]+'</li>';
+        var letterLi = document.getElementById("wordUl").innerHTML;
+        
+        if(randomWord[i] == " ") {
+            console.log(randomWord[i],letterIndex);
+            document.getElementById("wordUl").innerHTML = letterLi + '<li class="space"><div class="space">'+randomWord[i].toUpperCase();+'</div></li>';
+            } else {
+            console.log(randomWord[i],letterIndex);
+            document.getElementById("wordUl").innerHTML = letterLi + '<li class="ltrLi'+letterIndex+'"><div class="ltrBox'+letterIndex+'"><div class="ltrBoxContents'+letterIndex+' hidden">'+randomWord[i].toUpperCase();+'</div></div></li>';
+            }
     }
 
 
@@ -55,10 +60,22 @@ document.onkeyup = function(event){
             
             //checks to see if letter chosen is correct
             if (randomWord.includes(keyPress)){
-                console.log("GOT ONE!");
-                //TO DO:  
-                    //find how many of that letter are in the word and where they are
-                    //uncover/display letter(s)
+                
+                for (var i = 0; i < randomWord.length; i++) {
+                    var letterIndex = randomWord.indexOf(randomWord[i]);
+                    var occurs = 1;
+                        if (randomWord[i] === keyPress) {
+                            occurs++;
+                            console.log("occurances = "+occurs+" at index: "+letterIndex);
+                            
+                            //then...
+
+                            console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
+                            document.getElementsByClassName("ltrBoxContents"+letterIndex+" hidden")[0].className = "ltrBoxContents";
+
+                        }
+                }
+
             } else {
                 console.log("not one...");
                 document.getElementById("chances").innerHTML = "Remaining Chances: " + (chances - 1);

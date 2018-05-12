@@ -5,6 +5,7 @@ var losses = 0;
 
 //Create word bank array
 var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy"]; 
+var wordHint = ["of hint, "]
 
 // array/string to check agains alpha only characters
 var alphaOnly = "abcdefghijklmnopqrstuvwxyz";
@@ -47,7 +48,7 @@ for (var i = 0; i < randomWord.length; i++) {
 //grabs the keyboard event
 document.onkeyup = function(event){
     //stores the key "value" that was pressed
-    var keyPress = event.key;
+    var keyPress = event.key.toLowerCase();
     
     //checks to see if the key value is in the alpha string
     if (alphaOnly.includes(keyPress)){

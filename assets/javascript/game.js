@@ -1,3 +1,4 @@
+
 //Running Score
 var score = 0;
 var losses = 0;
@@ -5,6 +6,11 @@ var losses = 0;
 //Create word bank array
 var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy"]; 
 
+// array/string to check agains alpha only characters
+var alphaOnly = "abcdefghijklmnopqrstuvwxyz";
+//empty array to add "used letters" to
+var usedLetterArr = [];
+var correctLetters = 0;
 
 
 //set chanches to 6
@@ -14,7 +20,7 @@ var chances = 6;
 //grab random word from array
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase();
     console.log(randomWord);
-
+    
 
     for (i = 0; i < randomWord.length; i++) {
         var letterIndex = randomWord.indexOf(randomWord[i]);
@@ -30,11 +36,13 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCa
     }
 
 
-// array/string to check agains alpha only characters
-var alphaOnly = "abcdefghijklmnopqrstuvwxyz";
-//empty array to add "used letters" to
-var usedLetterArr = [];
-var correctLetters = 0;
+for (var i = 0; i < randomWord.length; i++) {
+    var letterIndex = randomWord.indexOf(randomWord[i]);
+
+        if (randomWord[i] == " ") {
+            correctLetters += 1;
+        }
+    }
 
 //grabs the keyboard event
 document.onkeyup = function(event){
@@ -70,7 +78,11 @@ document.onkeyup = function(event){
                 
                 for (var i = 0; i < randomWord.length; i++) {
                     var letterIndex = randomWord.indexOf(randomWord[i]);
-                    
+
+                        if (randomWord[i] == " ") {
+                            console.log("this word has a space");
+                        }
+
                         if (randomWord[i] === keyPress) {
                             correctLetters = correctLetters+1;
                             console.log(correctLetters);           

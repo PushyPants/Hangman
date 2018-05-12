@@ -51,20 +51,6 @@
     list-style: none;
 }
 
-.popupWrapper {
-    width: 600px !important;
-    text-align: center !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    z-index: 10 !important;
-}
-
-.pupUpAlert {
-    position: relative;
-    left: 50%;
-}
-
 /* list item that inclueds the string "ltrLi" since index number is added to the end */
 li[class *= "ltrLi"] {
     /* display: inline; */

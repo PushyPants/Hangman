@@ -1,8 +1,11 @@
 //Running Score
 var score = 0;
+var losses = 0;
 
 //Create word bank array
-var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "llalllalll"]; 
+var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy"]; 
+
+
 
 //set chanches to 6
 var chances = 6;
@@ -49,10 +52,10 @@ document.onkeyup = function(event){
         //checks to see if the letter has bee tried yet
         if(usedLetterArr.includes(keyPress)){
            //flash css message that letter has been used.
-            document.getElementById("tempMessage").innerHTML = "That letter has already been used";
-            document.getElementById("tempMessage").className = "show";
+            document.getElementById("popupContent").innerHTML = "<strong>Aww snap! You've already used that letter... Try again.</strong>";
+            document.getElementById("popupWrapper").className = "show";
             setTimeout(function(){
-            document.getElementById("tempMessage").className = "hidden";
+            document.getElementById("popupWrapper").className = "hidden";
             }, 1600);
         } else {
             //takes the valid keypress and adds it to the used array
@@ -70,7 +73,7 @@ document.onkeyup = function(event){
                     
                         if (randomWord[i] === keyPress) {
                             correctLetters = correctLetters+1;
-                            //console.log(correctLetters);           
+                            console.log(correctLetters);           
 
                             // console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
                             document.getElementsByClassName("ltrBoxContents"+letterIndex+" hidden")[0].className = "ltrBoxContents";
@@ -80,15 +83,21 @@ document.onkeyup = function(event){
                 
                 if (correctLetters == randomWord.length) {
                     score++;
-                    document.getElementById("score").innerHTML = "Score: "+score;
-
+                    console.log("game wone")
+                    document.getElementById("score").innerHTML = "<h5>Score: "+score+"</h5>";
+                    $('#gameWin').modal('show');
                     //Reset Game
                 }
 
             } else {
                 console.log("not one...");
-                document.getElementById("chances").innerHTML = "Remaining Chances: " + (chances - 1);
+                document.getElementById("chances").innerHTML = "<h5>Chances: " + (chances - 1)+"</h5>";
                 chances -= 1;
+
+                if (chances == 0) {
+                    losses += 1;
+                    $('#gameLose').modal('show');
+                }
             }
 
             }

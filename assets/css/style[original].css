@@ -1,44 +1,31 @@
 
-.container {
-    margin: 9rem auto;
-    height: 550px;
-    border: 1px solid black;
-    background-color: lightgrey;
+.hangManContainer{
+    min-height: 100%;
+    margin: 10% auto;
 }
 
-.row1 {
-    border-bottom: 1px solid black;
-    padding-left: 10px;
+.hangManContent {
+    border: 2px solid black;
+    margin-top: -10px;
+    min-height:250px;
 }
 
-.col1 {
-    border-right: 1px solid black;
-    min-height: 492px;
+.topRow {
+    border-bottom: 2px solid black;
+    min-height:100px;
 }
 
-.statsRow {
-    border-bottom: 1px solid black;
+.bottomRow{
+    height: 150px;
 }
 
-.row.animationRow h4 {
-    text-align: center;
-    width: 100%;
+.scoreCol{
+    border-right: 2px solid black;
 }
 
-.row.wordRow h4 {
-    text-align: center;
-    width: 100%;
+.usedLetterCol{
+    border-right:2px solid black;
 }
-
-.wordRow {
-    height: 200px;
-    border-bottom: 1px solid black;
-}
-
-.usedLetterRow {
-    height: 284px;
-}
-
 
 .usedLetters{
     font-size: 2rem;
@@ -49,20 +36,6 @@
 #wordUl {
     display: inline-flex;
     list-style: none;
-}
-
-.popupWrapper {
-    width: 600px !important;
-    text-align: center !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    z-index: 10 !important;
-}
-
-.pupUpAlert {
-    position: relative;
-    left: 50%;
 }
 
 /* list item that inclueds the string "ltrLi" since index number is added to the end */
@@ -91,6 +64,19 @@ li[class *= "ltrLi"] {
     border-bottom: none;
     visibility: hidden; 
 }
+
+
+#overlaywindow {
+    position: relative;
+    z-index: 5;
+    background-color: darkgray;
+    width:100px;
+    height: 100px;
+}
+
+
+
+
 
 
 #tempMessage {
@@ -129,15 +115,4 @@ li[class *= "ltrLi"] {
 @keyframes fadeinout {
   0%,100% { opacity: 0; }
   25%,75% { opacity: 1; }
-}
-
-
-@media screen and (max-width:640px) {
-    .container {
-        margin: 0 auto;
-    }
-
-    .row.animationRow {
-        display: none;
-    }
 }

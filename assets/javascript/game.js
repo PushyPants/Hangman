@@ -1,5 +1,8 @@
+//Running Score
+var score = 0;
+
 //Create word bank array
-var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma"];
+var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "llalllalll"]; 
 
 //set chanches to 6
 var chances = 6;
@@ -28,6 +31,7 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCa
 var alphaOnly = "abcdefghijklmnopqrstuvwxyz";
 //empty array to add "used letters" to
 var usedLetterArr = [];
+var correctLetters = 0;
 
 //grabs the keyboard event
 document.onkeyup = function(event){
@@ -63,17 +67,22 @@ document.onkeyup = function(event){
                 
                 for (var i = 0; i < randomWord.length; i++) {
                     var letterIndex = randomWord.indexOf(randomWord[i]);
-                    var occurs = 1;
+                    
                         if (randomWord[i] === keyPress) {
-                            occurs++;
-                            console.log("occurances = "+occurs+" at index: "+letterIndex);
-                            
-                            //then...
+                            correctLetters = correctLetters+1;
+                            //console.log(correctLetters);           
 
-                            console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
+                            // console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
                             document.getElementsByClassName("ltrBoxContents"+letterIndex+" hidden")[0].className = "ltrBoxContents";
 
                         }
+                }
+                
+                if (correctLetters == randomWord.length) {
+                    score++;
+                    document.getElementById("score").innerHTML = "Score: "+score;
+
+                    //Reset Game
                 }
 
             } else {

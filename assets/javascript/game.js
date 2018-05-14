@@ -126,10 +126,10 @@ document.onkeyup = function(event){
     
     } else {
         //flash css message that character is not valid.
-        document.getElementById("tempMessage").innerHTML = "That is not a recognized character...";
-        document.getElementById("tempMessage").className = "show";
+        document.getElementById("popupContent").innerHTML = "That is not a recognized character...";
+        document.getElementById("popupWrapper").className = "show";
             setTimeout(function(){
-            document.getElementById("tempMessage").className = "hidden";
+            document.getElementById("popupWrapper").className = "hidden";
             }, 1600);
     }
 }

@@ -5,30 +5,31 @@ var losses = 0;
 
 //Create word bank array
 var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy"]; 
-var wordHint = ["of hint, "]
 
 // array/string to check agains alpha only characters
 var alphaOnly = "abcdefghijklmnopqrstuvwxyz";
+
 //empty array to add "used letters" to
 var usedLetterArr = [];
 var correctLetters = 0;
 
-
 //set chanches to 6
 var chances = 6;
-
 
 //grab random word from array
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase();
     console.log(randomWord);
     
-
+    //loop to check each letter of the word and create a list item in the html
     for (i = 0; i < randomWord.length; i++) {
         var letterIndex = randomWord.indexOf(randomWord[i]);
         var letterLi = document.getElementById("wordUl").innerHTML;
         
+        // checks to see if there is a space in the word to style it differently on the DOM
         if(randomWord[i] == " ") {
             console.log(randomWord[i],letterIndex);
+            //This increases the correct letters by 1 if there is a "space" in the word.
+            correctLetters += 1;
             document.getElementById("wordUl").innerHTML = letterLi + '<li class="space"><div class="space">'+randomWord[i].toUpperCase();+'</div></li>';
             } else {
             console.log(randomWord[i],letterIndex);
@@ -36,15 +37,25 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCa
             }
     }
 
+window.onload = function () {     
+    $('#gameStart').modal('show'); 
+    document.onkeyup = function() {
+        $('#gameStart').modal('hide');
+        gamePlay();
+    };
+};
 
-for (var i = 0; i < randomWord.length; i++) {
-    var letterIndex = randomWord.indexOf(randomWord[i]);
 
-        if (randomWord[i] == " ") {
-            correctLetters += 1;
-        }
-    }
 
+
+// setTimeout( function() {    
+//     console.log(document.getElementById("gameStart").outerHTML);
+//     if (document.getElementById("gameStart").outerHTML.includes("display: block")) {
+//         console.log("startGame modal should be showing");
+//     }
+// }, 1000);
+
+function gamePlay() {
 //grabs the keyboard event
 document.onkeyup = function(event){
     //stores the key "value" that was pressed
@@ -77,23 +88,21 @@ document.onkeyup = function(event){
             //checks to see if letter chosen is correct
             if (randomWord.includes(keyPress)){
                 
+                //loops to check if keypress matches one or more of the letters in the word
                 for (var i = 0; i < randomWord.length; i++) {
                     var letterIndex = randomWord.indexOf(randomWord[i]);
-
-                        if (randomWord[i] == " ") {
-                            console.log("this word has a space");
-                        }
-
+                        
+                        // if letter(s) are correct, removes the "hidden" class value to display the letter
                         if (randomWord[i] === keyPress) {
                             correctLetters = correctLetters+1;
                             console.log(correctLetters);           
 
-                            // console.log(document.getElementsByClassName("ltrBoxContents"+letterIndex));
                             document.getElementsByClassName("ltrBoxContents"+letterIndex+" hidden")[0].className = "ltrBoxContents";
                             
                         }
 
                 }
+                
                 
                 if (correctLetters == randomWord.length) {
                     score++;
@@ -126,14 +135,11 @@ document.onkeyup = function(event){
     
     } else {
         //flash css message that character is not valid.
-        document.getElementById("tempMessage").innerHTML = "That is not a recognized character...";
-        document.getElementById("tempMessage").className = "show";
+        document.getElementById("popupWrapper").innerHTML = "That is not a recognized character...";
+        document.getElementById("popupWrapper").className = "show";
             setTimeout(function(){
-            document.getElementById("tempMessage").className = "hidden";
+            document.getElementById("popupWrapper").className = "hidden";
             }, 1600);
     }
 }
-
-
-
-
+} 

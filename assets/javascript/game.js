@@ -16,6 +16,17 @@ var correctLetters = 0;
 //set chanches to 6
 var chances = 6;
 
+
+window.onload = function () {     
+    $('#gameStart').modal('show'); 
+    setTimeout( function () {
+        document.onkeyup = function() {
+        $('#gameStart').modal('hide');
+        gamePlay();
+    }}, 1500);
+};
+
+function gamePlay() {
 //grab random word from array
 var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase();
     console.log(randomWord);
@@ -37,15 +48,6 @@ var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCa
             }
     }
 
-window.onload = function () {     
-    $('#gameStart').modal('show'); 
-    document.onkeyup = function() {
-        $('#gameStart').modal('hide');
-        gamePlay();
-    };
-};
-
-function gamePlay() {
 //grabs the keyboard event
 document.onkeyup = function(event){
     //stores the key "value" that was pressed
@@ -125,11 +127,7 @@ document.onkeyup = function(event){
     
     } else {
         //flash css message that character is not valid.
-<<<<<<< HEAD
         document.getElementById("popupContent").innerHTML = "That is not a recognized character...";
-=======
-        document.getElementById("popupWrapper").innerHTML = "That is not a recognized character...";
->>>>>>> 8e0ec1a7ca2b439ba726edcec47ce437aefb5180
         document.getElementById("popupWrapper").className = "show";
             setTimeout(function(){
             document.getElementById("popupWrapper").className = "hidden";

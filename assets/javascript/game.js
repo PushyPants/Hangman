@@ -23,7 +23,22 @@ window.onload = function () {
         document.onkeyup = function() {
         $('#gameStart').modal('hide');
         gamePlay();
-    }}, 1500);
+    }}, 500);
+};
+
+
+function resetGame() {
+    // Set chances back to 6 in the script & html
+    chances = 6;
+    document.getElementById("chances").innerHTML = "<h5>Chances: 6</h5>";
+    //reset word
+    document.getElementById("wordUl").innerHTML = " ";
+    //reset used letter array & html
+    usedLetterArr = [];
+    document.getElementById("usedLetters").innerHTML = " ";
+    //reset correct letter count
+    correctLetters = 0;
+    gamePlay();
 };
 
 function gamePlay() {
@@ -102,6 +117,10 @@ document.onkeyup = function(event){
                     document.getElementById("score").innerHTML = "<h5>Score: "+score+"</h5>";
                     $('#gameWin').modal('show');
                     //Reset Game
+                    document.onkeyup = function() {
+                        $('#gameWin').modal('hide');
+                        resetGame();
+                    };
                 }
 
             } else {
@@ -112,6 +131,11 @@ document.onkeyup = function(event){
                 if (chances == 0) {
                     losses += 1;
                     $('#gameLose').modal('show');
+                    //Reset Game
+                    document.onkeyup = function() {
+                        $('#gameLose').modal('hide');
+                        resetGame();}
+                    ;
                 }
             }
 

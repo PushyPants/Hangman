@@ -113,7 +113,7 @@ document.onkeyup = function(event){
                 
                 if (correctLetters == randomWord.length) {
                     score++;
-                    console.log("game wone")
+                    console.log("game won")
                     document.getElementById("score").innerHTML = "<h5>Score: "+score+"</h5>";
                     $('#gameWin').modal('show');
                     //Reset Game
@@ -130,6 +130,7 @@ document.onkeyup = function(event){
 
                 if (chances == 0) {
                     losses += 1;
+                    document.getElementById("losses").innerHTML = "<h5>Losses: " + (losses)+"</h5>";
                     $('#gameLose').modal('show');
                     //Reset Game
                     document.onkeyup = function() {

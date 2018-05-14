@@ -1,9 +1,19 @@
 
+body {
+    background: url('../images/barBG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container {
     margin: 9rem auto;
     height: 550px;
     border: 1px solid black;
-    background-color: lightgrey;
+    background-color: rgba(220,220,220, 0.8);
+}
+
+.conatiner::after {
+    opacity: 1;
 }
 
 .row1 {
@@ -20,14 +30,26 @@
     border-bottom: 1px solid black;
 }
 
+#score {
+    padding-top: 7px;
+}
+
 .row.animationRow h4 {
     text-align: center;
     width: 100%;
 }
 
 .row.wordRow h4 {
+    padding-top: 7px;
     text-align: center;
     width: 100%;
+    height: 50px;
+}
+
+.wordRowWrapper {
+    position: absolute;
+    left: 50%;
+    top: 15%;
 }
 
 .wordRow {
@@ -35,15 +57,31 @@
     border-bottom: 1px solid black;
 }
 
+#wordRow {
+    position: relative;
+    left: -50%;
+    height: 150px;
+    padding-top: 50px;
+}
+
+.usedLetterHeader h4 {
+    padding-top: 7px;
+    width: 100%;
+    text-align: center;
+}
+
 .usedLetterRow {
-    height: 284px;
+    height: 256px;
 }
 
 
 .usedLetters{
     font-size: 2rem;
     font-weight: bold;
-    letter-spacing: 5px;
+    padding-top: 25px;
+    letter-spacing: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 #wordUl {
@@ -51,30 +89,42 @@
     list-style: none;
 }
 
-.popupWrapper {
+
+
+#popupWrapper {
     width: 600px !important;
-    text-align: center !important;
+    text-align: center !important; 
     position: fixed !important;
-    top: 50% !important;
+    top:45% !important;
     left: 50% !important;
     z-index: 10 !important;
 }
 
-.pupUpAlert {
+.popUpAlert {
     position: relative;
-    left: 50%;
+    left: -50%;
+    top: -50%;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 }
 
 /* list item that inclueds the string "ltrLi" since index number is added to the end */
 li[class *= "ltrLi"] {
     /* display: inline; */
     margin: 0 5px;
+    font-size: 2rem;
+    font-weight: bold;
     /* border-bottom:1px solid black; */
 }
 
 [class *= "ltrBox"] {
-    border-bottom: 1px solid black;
-    width: 20px;
+    border-bottom: 3px solid black;
+    width: 35px;
     text-align: center;
 }
 
@@ -93,32 +143,11 @@ li[class *= "ltrLi"] {
 }
 
 
-#tempMessage {
-    color: white;
-    background-color: black;
-    border: 1px solid white;
-    border-radius: 5rem;
-    margin: 0 auto;
-    width: 500px;
-    text-align: center;
-    padding: 15px;
-}
 
-#tempMessage p{
-    margin: 0;
-}
 
-#tempMessage.hidden {
-    visibility: hidden;
-}
-
-#tempMessage.show {
-    position: fixed;
-    top: 49%;
-    left: 37%
-    z-index: 1;
+#popupWrapper.show {
     -webkit-animation: fadeinout 4s linear forwards;
-    animation: fadeinout 1.5s linear forwards;
+    animation: fadeinout 2s linear forwards;
 }
 
 @-webkit-keyframes fadeinout {

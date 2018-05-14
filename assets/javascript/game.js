@@ -45,16 +45,6 @@ window.onload = function () {
     };
 };
 
-
-
-
-// setTimeout( function() {    
-//     console.log(document.getElementById("gameStart").outerHTML);
-//     if (document.getElementById("gameStart").outerHTML.includes("display: block")) {
-//         console.log("startGame modal should be showing");
-//     }
-// }, 1000);
-
 function gamePlay() {
 //grabs the keyboard event
 document.onkeyup = function(event){

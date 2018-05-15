@@ -4,7 +4,7 @@ var score = 0;
 var losses = 0;
 
 //Create word bank array
-var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy"]; 
+var wordBank = ["Old Fashioned", "Tom Collins", "Cubalibre", "Paloma", "margarita", "Rob Roy", "Mojito", "Manhatten", "Cosmo", "Negroni", "Martini", "Bloody Mary", "Sangria", "Moscow Mule", "Sidecar", "Pisco Sour", "Long Island", "Hurricane", "Aviation"]; 
 
 // array/string to check agains alpha only characters
 var alphaOnly = "abcdefghijklmnopqrstuvwxyz";

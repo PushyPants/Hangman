@@ -132,6 +132,7 @@ document.onkeyup = function(event){
                     losses += 1;
                     document.getElementById("losses").innerHTML = "<h5>Losses: " + (losses)+"</h5>";
                     $('#gameLose').modal('show');
+                    $('#loseModal').html("<div>Sooorry, the answer we were looking for was</div><div><strong>"+ randomWord + "</strong></div><div>Press any key or the start button to try again!</div>")
                     //Reset Game
                     document.onkeyup = function() {
                         $('#gameLose').modal('hide');

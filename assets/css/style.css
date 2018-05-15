@@ -90,7 +90,9 @@ body {
     list-style: none;
 }
 
-
+#loseModal {
+    text-align: center;
+};
 
 #popupWrapper {
     width: 600px !important;
